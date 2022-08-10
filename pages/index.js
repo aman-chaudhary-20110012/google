@@ -8,14 +8,12 @@ import { useRef } from "react";
 export default function Home() {
   const router = useRouter();
   const searchInputRef = useRef(null);
-
   function search(event) {
     event.preventDefault();
     const term = searchInputRef.current.value;
     if (!term.trim()) return;
     router.push(`/search?term=${term.trim()}&searchType=`);
   }
-  
   async function randomSearch(event) {
     event.preventDefault();
     const randomTerm = await fetch(
